@@ -18,10 +18,10 @@ PubSubClient client(espClient);  // create an ESP8266 compatible client instance
 float temperature[sensorCount];  // store the temp reading from each DS18B20 sensor
 float lm35Temperature;           // store the temp reaing from the LM35 temp sensor
 
-char ssid[] = "CREEKSIDE-2.4";   // your network SSID (name)
-char pass[] = "GrandSnapper";    // your network password (use for WPA, or use as key for WEP)
+char ssid[] = "<your_network_name>";              // your network SSID (name)
+char pass[] = "<your_network_password>";          // your network password (use for WPA, or use as key for WEP)
 char mqtt_server[] = "mqtt://things.ubidots.com"; // the ubidots.com MQTT server
-int mqtt_port = 1883;            // the ubidots.com MQTT port
+int mqtt_port = 1883;                             // the ubidots.com MQTT port
 
 long lastMsg = 0;
 char msg[80];
@@ -198,7 +198,7 @@ void reconnect()
     Serial.print("Attempting MQTT connection...");
     // Attempt to connect
     // Boolean connect(const char* clientId, const char* username, const char* password);
-    if (client.connect("mqtt://things.ubidots.com", "8Yl2hwH14W5iO0ceKQSGGmDeZWRvcU", ""))
+    if (client.connect("mqtt://things.ubidots.com", "<your_ubidots_token>", ""))
     {
       Serial.println("connected");
       // Once connected, publish an announcement...
